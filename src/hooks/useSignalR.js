@@ -118,10 +118,10 @@ export function useSignalREvent(hubUrl, eventName, onEvent) {
 
     startConnection();
     return () => {
-      connection.off(eventName);
+      connection.off(eventName,onEvent);
       connection.stop();
     };
-  }, [hubUrl, eventName]);
+  }, [hubUrl, eventName,onEvent]);
 
   return { isConnected };
 }
